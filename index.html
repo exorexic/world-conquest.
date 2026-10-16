@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#07111f"><meta name="description" content="World Conquest — глобальная многопользовательская стратегия.">
+<title>WORLD CONQUEST</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar"><div class="brand"><span class="brand-icon">🌐</span><div><strong>WORLD CONQUEST</strong><small>ГЛОБАЛЬНАЯ СТРАТЕГИЯ</small></div></div><div class="top-actions"><span id="connection" class="status">● Не подключено</span><button id="soundBtn" class="icon-btn" aria-label="Звук">♫</button></div></header>
+  <main>
+    <section id="home" class="screen">
+      <div class="hero"><div class="eyebrow">СТРАТЕГИЯ • ДИПЛОМАТИЯ • ВОЙНА</div><h1>ТВОЯ СТРАНА.<br><span>ТВОЯ ИСТОРИЯ.</span></h1><p>Создай альянс, развивай экономику и перепиши карту мира. До 8 игроков в одной онлайн-комнате.</p>
+      <div class="hero-actions"><button id="createBtn" class="primary">＋ Создать комнату</button><button id="soloBtn" class="secondary">Играть локально</button></div></div>
+      <div class="lobby-grid"><article class="panel"><div class="panel-title">ВОЙТИ В КОМНАТУ</div><label for="playerName">Твоё имя</label><input id="playerName" maxlength="18" placeholder="Например, Александр" value=""><div class="join-row"><input id="roomCode" maxlength="8" placeholder="КОД КОМНАТЫ"><button id="joinBtn" class="secondary">Войти</button></div><p class="hint">Код сообщи друзьям. В комнате максимум 8 игроков.</p></article><article class="panel feature"><div class="feature-icon">♟</div><div><b>Живой мир</b><p>Выбирай страны на интерактивной карте и расширяй влияние.</p></div><div class="feature-icon">⚔</div><div><b>Онлайн до 8 игроков</b><p>Синхронизация комнаты через игровой сервер.</p></div><div class="feature-icon">⌁</div><div><b>Экономика и армия</b><p>Собирай ресурсы, нанимай войска, атакуй соперников.</p></div></article></div>
+      <div id="lobby" class="panel hidden"><div class="lobby-head"><div><div class="panel-title">КОМНАТА <span id="lobbyCode" class="code">------</span></div><p class="hint">Отправь код друзьям и дождись их подключения.</p></div><button id="copyCode" class="secondary">Копировать код</button></div><div id="playerList" class="players"></div><div class="lobby-actions"><button id="readyBtn" class="secondary">✓ Готов</button><button id="startBtn" class="primary">Начать матч</button></div><p id="lobbyMessage" class="hint">Для запуска нужно минимум 2 игрока.</p></div>
+    </section>
+    <section id="game" class="screen hidden">
+      <div class="game-layout"><aside class="sidebar"><div class="panel player-panel"><div class="panel-title">ТВОЯ ДЕРЖАВА</div><div id="countryName" class="country-name">Не выбрана</div><div class="stats"><div><small>РЕСУРСЫ</small><strong id="resources">—</strong></div><div><small>АРМИЯ</small><strong id="army">—</strong></div></div><div class="action-stack"><button id="recruitBtn" class="primary">＋ Нанять 10 войск <small>25 ресурсов</small></button><button id="upgradeBtn" class="secondary">⌁ Улучшить экономику <small>40 ресурсов</small></button><button id="attackBtn" class="danger">⚔ Атаковать выбранную страну <small>15 ресурсов</small></button></div></div><div class="panel"><div class="panel-title">В ИГРЕ</div><div id="playerStats" class="player-stats"></div></div><div class="panel log-panel"><div class="panel-title">СОБЫТИЯ</div><div id="eventLog" class="event-log"></div></div><button id="exitBtn" class="secondary full">← В меню</button></aside><div class="map-wrap"><div class="map-toolbar"><div><strong>Карта мира</strong><small id="mapHint">Нажми на страну, чтобы выбрать</small></div><span id="dayLabel" class="day">ДЕНЬ 0</span></div><div id="map"></div><div class="map-legend"><span><i class="dot mine"></i>Твоя страна</span><span><i class="dot enemy"></i>Игроки</span><span><i class="dot neutral"></i>Нейтральные</span></div></div></div>
+    </section>
+  </main>
+  <div id="toast" class="toast"></div><footer>WORLD CONQUEST <span>•</span> Онлайн-матчи требуют размещённого сервера и подключения к интернету.</footer>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="/app.js"></script>
+</body></html>
